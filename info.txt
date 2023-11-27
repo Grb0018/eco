@@ -1,0 +1,52 @@
+actual_price
+"399"
+(string)
+
+
+company
+"Roadster"
+(string)
+
+
+details
+"Black solid T-shirt, has a round neck, short sleeves"
+(string)
+
+
+image1
+"https://assets.myntassets.com/h_720,q_90,w_540/v1/…04759RoadsterMenBlackCottonPureCottonT-shirt1.jpg"
+(string)
+
+
+image2
+"https://assets.myntassets.com/h_720,q_90,w_540/v1/…04782RoadsterMenBlackCottonPureCottonT-shirt2.jpg"
+(string)
+
+
+image3
+"https://assets.myntassets.com/h_720,q_90,w_540/v1/…04807RoadsterMenBlackCottonPureCottonT-shirt3.jpg"
+(string)
+
+
+material
+"100% cotton Machine-wash"
+(string)
+
+
+name
+"Men Black Cotton Pure Cotton T-shirt"
+(string)
+
+
+price
+"199"
+(string)
+
+
+size_and_fit
+"The model (height 6') is wearing a size M"
+(string)
+
+
+type
+"tshirt"
