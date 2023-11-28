@@ -43,12 +43,14 @@ return <>
             men_product.map((item)=>{
                 if(item.type==="tshirt"){
                     return <>
+                    <Link to={"/product/"+item.id} >
                     <div className=" relative min-w-[16rem] bg-cover h-80 " style={{backgroundImage: `url("${item.images1}")`}}>
                         <div className=" flex flex-col justify-start items-start gap-2 absolute bottom-0 p-2">
                             <span className="text-white font-semibold bg-[#0b0d0e2b] text-lg">{item.company}</span>
                             <span className="text-sm text-gray-900 ">{item.name}</span>
                         </div>
                     </div>
+                    </Link>
                     </>
                 }
             })

@@ -7,16 +7,15 @@ import { useState,useEffect } from 'react';
 import { db } from "../firebase";
 import { getDocs , collection} from "firebase/firestore";
 import { addMenProduct } from "../redux/storeSlice";
-import { Link } from 'react-router-dom';
+import More_product_list from '../Component/More_product_list';
+import Current_selected_product from '../Component/Current_selected_product';
 const Product_Detail=()=>{
-   const [quantity,setQuantity] = useState(0);
-   const [size,setSize] = useState("S");
+
    const [totalcartItems,setTotalcartItems] = useState(0);
    const [selected_item,setSelected_item] = useState([]);
    const dispatch = useDispatch();
    var all_men_product = useSelector(state => state.storeSlice.men);
    var {itemId} = useParams();
-
    useEffect(()=>{
     if(all_men_product.length<1){
         try {
@@ -40,9 +39,8 @@ const Product_Detail=()=>{
         }))
         console.log(selected_item[0])
     }
-   },[])
+   },[itemId])
 
-   
 
 
 
@@ -91,66 +89,8 @@ const Product_Detail=()=>{
 
     return <div>
         <Header totalcartItems={totalcartItems}/>
-        <div className='mx-4 mt-10 font-semibold text-sm'>Home / Men / {selected_item[0]?.name}</div>
-        <div className='flex flex-row gap-10 m-14'>
-         <div className=' w-[50%] relative flex items-start mt-3 justify-end'>
-         <img src={`${selected_item[0]?.images1}`}  className='w-[26rem] mr-5'/>
-         </div>
-         <div className=' w-[45%] relative flex flex-col items-start justify-start'>
-            <h2 className='my-2 text-xl'>{selected_item[0]?.name}</h2>
-            <h3 className='font-bold text-3xl my-1'>{selected_item[0]?.company}</h3>
-            <br/>
-            <p className='text-md mt-4 font-bold'>PRODUCT DETAILS :</p>
-            <p className='w-[70%]'>{selected_item[0]?.details}</p>
-            <p className='text-md mt-4 font-bold'>MATERIAL :</p>
-            <p className='w-[70%]'>{selected_item[0]?.material}</p>
-            <br/>
-            <span className='flex flex-row justify-center items-center gap-2 mt-4'>
-            <p className='font-bold text-md'>Price.</p>
-            <p className='ml-5 text-md'>₹{selected_item[0]?.price}</p>
-            </span>
-            <span className='flex flex-row justify-center items-center gap-2 mt-4'>
-            <p className='text-md font-bold'>Select Size :</p>
-            <select className='font-bold text-sm bg-slate-200 p-2' onChange={(e)=>{setSize(e.currentTarget.value)}}>
-               <option value="S">S</option>
-               <option value="M">M</option>
-               <option value="L">L</option>
-               <option value="XL">XL</option>
-            </select>
-            </span>
-            <span className='flex flex-row justify-center items-center gap-2 mt-4'>
-            <p className='font-bold text-md'>Quantity : </p>
-            <p className='ml-2 text-md'>{quantity}</p>
-            <span className='flex gap-1'><button className='btn hover:bg-slate-900 text-[1.4rem]' onClick={()=>{setQuantity(quantity-1)}}>-</button><button className='btn hover:bg-slate-900 text-[1.2rem]' onClick={()=>{setQuantity(quantity+1)}}>+</button></span>
-            </span>
-            <span className='flex gap-6 my-4'>
-               <button className=' bg-orange-200 font-semibold btn' ><i class="fi fi-ts-bags-shopping"></i> Add Product</button>
-               <button className='btn bg-blue-950 text-gray-100'><i class="fi fi-rr-heart"></i>Add Wishlist</button>
-            </span>
-         </div>
-        </div>
-        <div className='my-4 '>
-            <hr />
-            <span className='px-4 my-5 block font-semibold'>More Men's Product</span>
-            <div className="flex min-w-full  overflow-y-hidden relative px-10 flex-row gap-4 justify-evenly">
-        {
-            all_men_product.map((item,i)=>{
-                if(i<5){
-                    return <>
-                    <Link to={"/product/"+item.id} >
-                    <div className=" relative min-w-[14rem] bg-cover h-72 " style={{backgroundImage: `url("${item.images1}")`}} >
-                        <div className=" flex flex-col justify-start items-start gap-2 absolute bottom-0 p-2">
-                            <span className="text-white font-semibold bg-[#0b0d0e2b] text-lg">{item.company}</span>
-                            <span className="text-sm text-gray-900 ">{item.name}</span>
-                        </div>
-                    </div>
-                    </Link>
-                    </>
-                }
-            })
-        }
-    </div>
-        </div>
+        <Current_selected_product selected_item={selected_item} />
+        <More_product_list item_List={all_men_product} selected_item={selected_item}/>
     </div>
  }
  export default Product_Detail;
