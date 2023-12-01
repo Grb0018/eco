@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Logout =()=>{
+const Signup =()=>{
 
     const[eye,setEye]= useState(false);
     const[password,setPassword]=useState("");
@@ -35,4 +35,4 @@ const Logout =()=>{
     </>
 }
 
-export default Logout;
+export default Signup;

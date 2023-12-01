@@ -1,7 +1,7 @@
 window.env = {
   "ALLUSERSPROFILE": "C:\\ProgramData",
   "APPDATA": "C:\\Users\\admin\\AppData\\Roaming",
-  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_2196_DNMLWACHCKHMCKNF",
+  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_15352_COUFUMTGCSNXRESJ",
   "COLOR": "1",
   "COLORTERM": "truecolor",
   "CommonProgramFiles": "C:\\Program Files\\Common Files",
@@ -84,6 +84,6 @@ window.env = {
   "VSCODE_GIT_ASKPASS_NODE": "C:\\Users\\admin\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
   "VSCODE_GIT_IPC_HANDLE": "\\\\.\\pipe\\vscode-git-40f5ad8c2d-sock",
   "VSCODE_INJECTION": "1",
-  "VSCODE_NONCE": "842c6c56-a2b0-46ef-a3b0-f3abcb1c7367",
+  "VSCODE_NONCE": "0c4e58ec-55d2-4c74-b055-8d90c2b7afb3",
   "windir": "C:\\Windows"
 };

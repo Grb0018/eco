@@ -1,8 +1,54 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
+import { store } from '../redux/store';
+import { addToCart } from "../redux/storeSlice";
+import { useDispatch } from "react-redux";
 const Current_selected_product=(props)=>{
     const [quantity,setQuantity] = useState(0);
     const [size,setSize] = useState("S");
+    const dispatch = useDispatch();
+
+    const add_to_cart=(data)=>{
+      let cartItem = store.getState()?.storeSlice?.user[0].cart;
+      var duplicateItem=false;
+      if(cartItem.length != 0){
+       cartItem.forEach(item => {
+          if(item.id===data.id){
+                let newData = Object.assign({},item);
+                newData.quantity += parseInt(quantity);
+                newData.size = size;
+                let newArray = cartItem.filter(filter_item=>{
+                    if(filter_item.id != data.id){
+                      return filter_item
+                    }
+                });
+                newArray.push(newData);
+                dispatch(addToCart(newArray));
+                duplicateItem=true;
+          }
+          });
+          if(duplicateItem===false){
+              let newArray = [...cartItem];
+              let newData = Object.assign({},data)
+              newData.quantity = quantity;
+              newData.size = size;
+              newArray.push(newData);
+              dispatch(addToCart(newArray));
+          }
+      }else{
+          let newArray = [...cartItem];
+          if(duplicateItem===false){
+              let newData = Object.assign({},data)
+              newData.quantity = quantity;
+              newData.size = size;
+              newArray.push(newData);
+       }
+       dispatch(addToCart(newArray));
+      }
+ 
+    };
+
+
     return <>
             <div className='mx-4 mt-10 font-semibold text-sm flex flex-row items-center gap-2'>
             <Link to={"/"} className='text-sm'>Home /</Link>
@@ -44,7 +90,7 @@ const Current_selected_product=(props)=>{
             <button className='btn hover:bg-slate-600 hover:text-slate-200 w-8 mx-1 text-[1.2rem]' onClick={()=>{setQuantity(quantity+1)}}>+</button></span>
             </span>
             <span className='flex gap-6 my-4'>
-               <button className=' bg-orange-600 text-slate-100 font-semibold px-4 py-1' ><i class="fi fi-ts-bags-shopping"></i> Add Product <i className="fi fi-tr-cart-shopping-fast"></i></button>
+               <button className=' bg-orange-600 text-slate-100 font-semibold px-4 py-1' onClick={()=>{add_to_cart(props.selected_item[0])}} ><i class="fi fi-ts-bags-shopping"></i> Add Product <i className="fi fi-tr-cart-shopping-fast"></i></button>
                <button className='px-4 py-1 bg-slate-800 text-gray-100'><i class="fi fi-rr-heart"></i>Add Wishlist</button>
             </span>
          </div>

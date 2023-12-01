@@ -9,6 +9,8 @@ import { getDocs , collection} from "firebase/firestore";
 import { addMenProduct } from "../redux/storeSlice";
 import More_product_list from '../Component/More_product_list';
 import Current_selected_product from '../Component/Current_selected_product';
+import {store} from "../redux/store";
+import { addUser } from "../redux/storeSlice";
 const Product_Detail=()=>{
 
    const [totalcartItems,setTotalcartItems] = useState(0);
@@ -44,48 +46,7 @@ const Product_Detail=()=>{
 
 
 
-//    const aaddToCart=(data)=>{
-//      let cartItem = store.getState()?.ReduxStore?.cart;
-//      var duplicateItem=false;
-//      if(cartItem.length != 0){
-//       cartItem.forEach(item => {
-//          if(item.name===data.name){
-//                let newData = Object.assign({},item);
-//                newData.quantity += parseInt(quantity);
-//                newData.size = size;
-//                let newArray = cartItem.filter(filter_item=>{
-//                    if(filter_item.name != data.name){
-//                      return filter_item
-//                    }
-//                });
-//                newArray.push(newData);
-//                dispatch(addToCart(newArray));
-//                duplicateItem=true;
-//                setTotalcartItems(store.getState()?.ReduxStore?.cart.length);
-//          }
-//          });
-//          if(duplicateItem===false){
-//              let newArray = [...cartItem];
-//              let newData = Object.assign({},data)
-//              newData.quantity = quantity;
-//              newData.size = size;
-//              newArray.push(newData);
-//              dispatch(addToCart(newArray));
-//              setTotalcartItems(store.getState()?.ReduxStore?.cart.length);
-//          }
-//      }else{
-//          let newArray = [...cartItem];
-//          if(duplicateItem===false){
-//              let newData = Object.assign({},data)
-//              newData.quantity = quantity;
-//              newData.size = size;
-//              newArray.push(newData);
-//       }
-//             dispatch(addToCart(newArray));
-//             setTotalcartItems(store.getState()?.ReduxStore?.cart.length);
-//      }
-
-//    };
+  
 
     return <div>
         <Header totalcartItems={totalcartItems}/>
