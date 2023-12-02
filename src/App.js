@@ -12,13 +12,17 @@ import { auth, db } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { addUser } from './redux/storeSlice';
+import Cart from './Pages/Cart';
 function App() {
   const dispatch = useDispatch();
   useEffect(()=>{
     onAuthStateChanged(auth,(user)=>{
-      getDoc(doc(db,"users",user.uid)).then(snapshot=>{
-        dispatch(addUser([snapshot.data()]));
-      })
+      if(user){
+        getDoc(doc(db,"users",user.uid)).then(snapshot=>{
+          dispatch(addUser([snapshot.data()]));
+        })
+      }
+      
     })
   },[])
 
@@ -30,6 +34,7 @@ function App() {
       <Route path='/signin' element={<Login />}/>
       <Route path='/signup' element={<Signup />}/>
       <Route path='/product/:itemId' element={<Product_Detail />}/>
+      <Route path='/cart' element={<Cart />}/>
       <Route path={"*"} element={<No_page />}/>
     </Routes>
     </BrowserRouter>
