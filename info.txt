@@ -1,52 +1,46 @@
 actual_price
-"399"
+"1099"
 (string)
-
 
 company
-"Roadster"
+"Huetrap"
 (string)
-
 
 details
-"Black solid T-shirt, has a round neck, short sleeves"
+"Beige and Black printed T-shirt, has a round neck, and short sleeves"
 (string)
 
-
-image1
-"https://assets.myntassets.com/h_720,q_90,w_540/v1/…04759RoadsterMenBlackCottonPureCottonT-shirt1.jpg"
+id
+"Huetrap1099"
 (string)
 
-
-image2
-"https://assets.myntassets.com/h_720,q_90,w_540/v1/…04782RoadsterMenBlackCottonPureCottonT-shirt2.jpg"
+images1
+"https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/productimage/2019/12/12/1aab2a18-6774-4f83-b292-fe301755a3351576102551329-1.jpg"
 (string)
 
-
-image3
-"https://assets.myntassets.com/h_720,q_90,w_540/v1/…04807RoadsterMenBlackCottonPureCottonT-shirt3.jpg"
+images2
+"https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/productimage/2019/12/12/e47f6e3e-9c44-44b7-b134-314cdde804c11576102551371-2.jpg"
 (string)
 
+images3
+"https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/productimage/2019/12/12/6f3376d3-d5cd-4de4-8d04-66db80d5cef61576102551416-3.jpg"
+(string)
 
 material
-"100% cotton Machine-wash"
+"Material: 52% Cotton 48% Polyester Machine Wash"
 (string)
-
 
 name
-"Men Black Cotton Pure Cotton T-shirt"
+"Men Beige & Black Typography Printed Sustainable T-shirt"
 (string)
-
 
 price
-"199"
+"373"
 (string)
-
 
 size_and_fit
 "The model (height 6') is wearing a size M"
 (string)
-
 
 type
 "tshirt"
